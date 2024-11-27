@@ -1,13 +1,17 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import UserPage from "./pages/UserPage";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>
-        Welcome to LikeAHolic Social Media App.
-      </h1>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="" element={<HomePage />} />
+                <Route path="/users/:id" element={<UserPage />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
