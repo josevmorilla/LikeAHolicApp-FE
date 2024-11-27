@@ -14,8 +14,6 @@ LikeAholic is a social media application that allows users to view and interact 
 - **Backend**: Spring Boot
 - **Styling**: CSS
 
-## Getting Started
-
 ### Prerequisites
 
 - Node.js and npm installed
