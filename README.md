@@ -41,22 +41,6 @@ LikeAholic is a social media application that allows users to view and interact 
    mvn install
    ```
 
-### Running the Application
-
-1. **Start the backend server**:
-   ```bash
-   cd backend
-   mvn spring-boot:run
-   ```
-
-2. **Start the frontend development server**:
-   ```bash
-   cd frontend
-   npm start
-   ```
-
-3. **Open your browser** and navigate to `http://localhost:3000`
-
 ## Project Structure
 
 - **frontend/**: Contains the React application
@@ -64,19 +48,3 @@ LikeAholic is a social media application that allows users to view and interact 
   - **src/styles/**: CSS files
   - **src/services/**: API service configuration
 - **backend/**: Contains the Spring Boot application
-
-## Contributing
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
