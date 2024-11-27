@@ -19,27 +19,7 @@ LikeAholic is a social media application that allows users to view and interact 
 ### Prerequisites
 
 - Node.js and npm installed
-- Java and Maven installed for the backend
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/likeaholic-social-app.git
-   cd likeaholic-social-app
-   ```
-
-2. **Install frontend dependencies**:
-   ```bash
-   cd frontend
-   npm install
-   ```
-
-3. **Install backend dependencies**:
-   ```bash
-   cd backend
-   mvn install
-   ```
+- Java and Spring Boot installed for the backend
 
 ## Project Structure
 
