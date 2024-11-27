@@ -1,0 +1,24 @@
+.post-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-content {
+    margin-bottom: 12px;
+}
+
+.post-metadata {
+    display: flex;
+    gap: 16px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.post-metadata span {
+    display: flex;
+    align-items: center;
+}
