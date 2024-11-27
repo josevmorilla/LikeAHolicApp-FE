@@ -2,8 +2,6 @@
 
 LikeAholic is a social media application that allows users to view and interact with posts. This project is built using React for the frontend and a Spring Boot backend.
 
-# LikeAholic Social App
-
 ## ⚠️ Prerequisites
 
 ### Backend Requirement
@@ -40,10 +38,25 @@ Make sure you have the following installed:
 - **Backend**: Spring Boot
 - **Styling**: CSS
 
-### Prerequisites
+## Getting Started
 
-- Node.js and npm installed
-- Java and Spring Boot installed for the backend
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/likeaholic-social-app.git
+   cd likeaholic-social-app
+   ```
+
+2. **Install frontend dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the application**:
+   ```bash
+   npm start
+   ```
 
 ## Project Structure
 
