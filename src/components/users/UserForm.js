@@ -10,7 +10,7 @@ function UserForm(props) {
         email: '',
         password: '',
         firstName: '',
-        lasName: '',
+        lastName: '',
         bio: '',
         location: '',
         joinDate: ''
@@ -19,14 +19,14 @@ function UserForm(props) {
     useEffect(() => {
         if (user) {
             setFormData({
-                username: user.username,
-                email: user.email,
-                password: user.password,
-                firstName: user.firstName,
-                lasName: user.lasName,
-                bio: user.bio,
-                location: user.location,
-                joinDate: user.joinDate
+                username: user.username || '',
+                email: user.email || '',
+                password: '', // Keep password empty when editing
+                firstName: user.firstName || '',
+                lastName: user.lastName || '',
+                bio: user.bio || '',
+                location: user.location || '',
+                joinDate: user.joinDate || ''
             });
         }
     }, [user]);
@@ -42,12 +42,11 @@ function UserForm(props) {
         onSave(formData, user ? user.userId : null);
     };
 
-
-
     return (
         <div className="form-container">
             <Form onSubmit={handleSubmit}>
-                <h2>{post ? 'Edit User' : 'Add New User'}</h2>
+                <h2>{user ? 'Edit User' : 'Add New User'}</h2>
+
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>
                     <Form.Control
@@ -58,6 +57,7 @@ function UserForm(props) {
                         required
                     />
                 </Form.Group>
+
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
@@ -68,6 +68,7 @@ function UserForm(props) {
                         required
                     />
                 </Form.Group>
+
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
@@ -75,9 +76,10 @@ function UserForm(props) {
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
-                        required
+                        required={!user} // Make password required only when creating a new user
                     />
                 </Form.Group>
+
                 <Form.Group controlId="firstName">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control
@@ -87,51 +89,56 @@ function UserForm(props) {
                         onChange={handleChange}
                         required
                     />
-                    <Form.Group controlId="lastName">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleChange}
-                            required
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="bio">
-                        <Form.Label>Bio</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="bio"
-                            value={formData.bio}
-                            onChange={handleChange}
-                            required
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="location">
-                        <Form.Label>Location</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="location"
-                            value={formData.location}
-                            onChange={handleChange}
-                            required
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="joinDate">
-                        <Form.Label>Join Date</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="joinDate"
-                            value={formData.joinDate}
-                            onChange={handleChange}
-                            required
-                        />
-                    <Button variant="primary" type="submit" className="mt-3">
-                        {customer ? 'Update User' : 'Create User'}
-                    </Button>
+                </Form.Group>
+
+                <Form.Group controlId="lastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
+
+                <Form.Group controlId="bio">
+                    <Form.Label>Bio</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="bio"
+                        value={formData.bio}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+
+                <Form.Group controlId="location">
+                    <Form.Label>Location</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+
+                <Form.Group controlId="joinDate">
+                    <Form.Label>Join Date</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="joinDate"
+                        value={formData.joinDate}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" className="mt-3">
+                    {user ? 'Update User' : 'Create User'}
+                </Button>
             </Form>
         </div>
-);
+    );
 }
 
 export default UserForm;

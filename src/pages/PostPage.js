@@ -32,6 +32,6 @@ function PostPage() {
             </div>
         </div>
     );
-};
+}
 
 export default PostPage;

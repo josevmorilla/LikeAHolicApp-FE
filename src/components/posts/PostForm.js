@@ -15,10 +15,10 @@ function PostForm(props) {
     useEffect(() => {
         if (post) {
             setFormData({
-                content: post.content,
-                timestamp: post.timestamp,
-                likesCount: post.likesCount,
-                commentsCount: post.commentsCount
+                content: post.content || '',
+                timestamp: post.timestamp || '',
+                likesCount: post.likesCount || '',
+                commentsCount: post.commentsCount || ''
             });
         }
     }, [post]);
@@ -33,8 +33,6 @@ function PostForm(props) {
         console.log('Saving post:', formData);
         onSave(formData, post ? post.postId : null);
     };
-
-
 
     return (
         <div className="form-container">
@@ -79,8 +77,9 @@ function PostForm(props) {
                         onChange={handleChange}
                         required
                     />
+                </Form.Group>
                 <Button variant="primary" type="submit" className="mt-3">
-                    {customer ? 'Update Post' : 'Create Post'}
+                    {post ? 'Update Post' : 'Create Post'}
                 </Button>
             </Form>
         </div>
