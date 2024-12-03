@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <nav className="navbar">
             <div className="nav-brand">
-                <Link to="/">LikeAholic</Link>
+                <Link to="/">LikeAHolic</Link>
             </div>
             <ul className="nav-links">
                 <li>
