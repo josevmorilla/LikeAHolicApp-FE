@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import PostCard from "./PostCard";
 import { fetchPosts } from "../../services/api";
 
@@ -10,10 +11,17 @@ const PostList = () => {
     }, []);
 
     return (
-        <div className="post-list">
-            {posts.map((post) => (
-                <PostCard key={post.id} post={post} />
-            ))}
+        <div className="center">
+            <h1>Post List</h1>
+            <Container fluid>
+                <Row sm={1} md={2} lg={3} className="justify-content-evenly">
+                    {posts.map((post) => (
+                        <Col key={post.id} className="mb-4">
+                            <PostCard post={post} />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
         </div>
     );
 };

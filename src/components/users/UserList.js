@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { fetchUsers } from "../../services/api"; // Replace with your actual API function
+import { fetchUsers } from "../../services/api";
 import UserCard from "./UserCard";
 
 const UserList = () => {

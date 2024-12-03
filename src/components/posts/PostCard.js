@@ -1,40 +1,21 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
-const PostCard = ({ post }) => {
+function PostCard({post}) {
     if (!post) {
         return <div>Invalid post data</div>;
     }
-
     return (
-        <div className="card mb-4 border">
-            <div className="card-body">
-                {/* Content Section */}
-                <div className="mb-3 p-3 border">
-                    <h5 className="card-title text-center mb-0">{post.content}</h5>
-                </div>
-
-                {/* User and Timestamp */}
-                <div className="mb-3 p-2 border">
-                    <h6 className="card-subtitle text-muted">
-                        ID: {post.id}
-                    </h6>
-                    <p className="card-subtitle text-muted">
-                        Date: {new Date(post.timestamp).toLocaleDateString()}
-                    </p>
-                </div>
-
-                {/* Metadata (Likes and Comments) */}
-                <div className="p-2 border">
-                    <p className="mb-1">
-                        Likes: {post.likesCount || 0}
-                    </p>
-                    <p className="mb-0">
-                        Comments: {post.commentsCount || 0}
-                    </p>
-                </div>
-            </div>
-        </div>
+        <Card style={{ width: "18rem" }} className="mb-4">
+            <Card.Body>
+                <Card.Title>{post.content}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">ID: {post.id}</Card.Subtitle>
+                <Card.Text>Date: {new Date(post.timestamp).toLocaleDateString()}</Card.Text>
+                <Card.Text>Likes: {post.likesCount || 0}</Card.Text>
+                <Card.Text>Comments: {post.commentsCount || 0}</Card.Text>
+            </Card.Body>
+        </Card>
     );
-};
+}
 
 export default PostCard;
