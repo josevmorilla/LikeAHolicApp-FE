@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/app/Header';
 import { fetchUsers } from '../services/api';
 
-const UserPage = () => {
+function UserPage() {
     const [user, setUser] = useState(null);
     const { id } = useParams();
 
@@ -32,6 +32,6 @@ const UserPage = () => {
             </div>
         </div>
     );
-};
+}
 
 export default UserPage;

@@ -7,5 +7,14 @@ const API = axios.create({
     },
 });
 
+// USER CRUD OPERATIONS
 export const fetchUsers = () => API.get("/users");
-export const fetchPosts = () => API.get("/posts");
+export const createUser = (userData) => API.post("/users", userData);
+export const updateUser = (userId, updatedData) => API.put(`/users/${userId}`, updatedData);
+export const deleteUser = (userId) => API.delete(`/users/${userId}`);
+
+// POST CRUD OPERATIONS
+export const fetchPosts = () => API.get("/posts")
+export const createPost = (postData) => API.post("/posts", postData);
+export const updatePost = (postId, updatedData) => API.put(`/posts/${postId}`, updatedData);
+export const deletePost = (postId) => API.delete(`/posts/${postId}`);
