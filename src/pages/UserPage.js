@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/app/Header';
-import { fetchUsers } from '../services/api';
+import { fetchUsers, createUser, updateUser, deleteUser } from '../services/api';
 
 function UserPage() {
     const [user, setUser] = useState(null);
@@ -20,6 +20,24 @@ function UserPage() {
 
         loadUser();
     }, [id]);
+
+    const handleCreateUser = (newUser) => {
+        createUser("users", newUser)
+            .then(() => fetchUsers("users").then((response) => setUser(response.data)))
+            .catch((error) => console.error("Error creating user:", error));
+    };
+
+    const handleUpdateUser = (id, updatedUser) => {
+        updateUser("users", id, updatedUser)
+            .then(() => fetchUsers("users").then((response) => setUser(response.data)))
+            .catch((error) => console.error("Error updating resource:", error));
+    };
+
+    const handleDeleteUser = (id) => {
+        deleteUser("users", id)
+            .then(() => fetchUsers("users").then((response) => setUser(response.data)))
+            .catch((error) => console.error("Error deleting resource:", error));
+    };
 
     if (!user) return <div>Loading...</div>;
 
