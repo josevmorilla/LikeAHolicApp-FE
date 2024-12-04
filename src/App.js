@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
 import PostPage from "./pages/PostPage";
@@ -11,13 +11,13 @@ const App = () => {
     return (
 
         <Router>
-            <Header />
+            <Header/>
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/posts" element={<PostList />} />
-                <Route path="/users" element={<UserList />} />
-                <Route path="/posts/:id" element={<PostPage />} />
-                <Route path="/users/:id" element={<UserPage />} />
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/posts" element={<PostList/>}/>
+                <Route path="/users" element={<UserList/>}/>
+                <Route path="/posts/:id" element={<PostPage/>}/>
+                <Route path="/users/:id" element={<UserPage/>}/>
             </Routes>
         </Router>
     );

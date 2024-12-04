@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
+import {Button, Form} from 'react-bootstrap';
 
 function UserForm(props) {
     const user = props.user;
@@ -32,8 +32,8 @@ function UserForm(props) {
     }, [user]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
     };
 
     const handleSubmit = (e) => {

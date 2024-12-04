@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {Card, Container} from 'react-bootstrap';
 import Header from '../components/app/Header';
-import { fetchPosts} from '../services/api';
+import {fetchPosts} from '../services/api';
 
 function PostPage() {
     const [post, setPost] = useState(null);
-    const { id } = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         const loadPost = async () => {
             try {
                 const response = await fetchPosts();
-                const foundPost = response.data.find(u => u.id === parseInt(id));
+                const foundPost = response.data.find((u) => u.id === parseInt(id));
                 setPost(foundPost);
             } catch (error) {
                 console.error('Error loading post:', error);
@@ -25,11 +26,26 @@ function PostPage() {
 
     return (
         <div className="post-page">
-            <Header />
-            <div className="post-content">
-                <h1>{post.content}</h1>
-                {/* Add more post details here */}
-            </div>
+            <Header/>
+            <Container className="d-flex justify-content-center align-items-center" style={{minHeight: '80vh'}}>
+                <Card style={{width: '18rem'}}>
+                    <Card.Body>
+                        <Card.Title>Post Details</Card.Title>
+                        <Card.Text>
+                            <strong>Content:</strong> {post.content}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Timestamp:</strong> {post.timestamp}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Likes:</strong> {post.likesCount}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Comments:</strong> {post.commentsCount}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Container>
         </div>
     );
 }

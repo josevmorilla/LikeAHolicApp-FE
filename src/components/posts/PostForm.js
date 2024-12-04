@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
+import {Button, Form} from 'react-bootstrap';
 
 function PostForm(props) {
     const post = props.post;
@@ -9,7 +9,8 @@ function PostForm(props) {
         content: '',
         timestamp: '',
         likesCount: '',
-        commentsCount: ''
+        commentsCount: '',
+        userId: ''
     });
 
     useEffect(() => {
@@ -18,14 +19,15 @@ function PostForm(props) {
                 content: post.content || '',
                 timestamp: post.timestamp || '',
                 likesCount: post.likesCount || '',
-                commentsCount: post.commentsCount || ''
+                commentsCount: post.commentsCount || '',
+                userId: post.userId || ''
             });
         }
     }, [post]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
     };
 
     const handleSubmit = (e) => {
@@ -74,6 +76,16 @@ function PostForm(props) {
                         type="number"
                         name="commentsCount"
                         value={formData.commentsCount}
+                        onChange={handleChange}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="userId">
+                    <Form.Label>User ID</Form.Label>
+                    <Form.Control
+                        type="number"
+                        name="userId"
+                        value={formData.userId}
                         onChange={handleChange}
                         required
                     />

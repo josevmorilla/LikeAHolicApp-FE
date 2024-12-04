@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import PostCard from "./PostCard";
-import { createPost, deletePost, fetchPosts, updatePost } from "../../services/api";
+import {createPost, deletePost, fetchPosts, updatePost} from "../../services/api";
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -9,6 +9,7 @@ const PostList = () => {
     const [modalMode, setModalMode] = useState("create"); // "create" or "update"
     const [formData, setFormData] = useState({
         content: '',
+        userId: ''
     });
     const [selectedPost, setSelectedPost] = useState(null);
 
@@ -40,14 +41,14 @@ const PostList = () => {
     };
 
     const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        const currentTimestamp = new Date().toISOString(); // Get current date and time
+        const currentTimestamp = new Date().toISOString(); // Get current date and time for timestamp
         const dataToSubmit = {
             ...formData,
             timestamp: currentTimestamp,
@@ -75,7 +76,7 @@ const PostList = () => {
 
     return (
         <div className="center">
-            <h1>Post List</h1>
+            <h1>Posts List</h1>
             <Button variant="primary" onClick={() => handleShowModal("create")} className="mb-4">
                 Create New Post
             </Button>
@@ -83,7 +84,7 @@ const PostList = () => {
                 <Row sm={1} md={2} lg={3} className="justify-content-evenly">
                     {posts.map((post) => (
                         <Col key={post.id} className="mb-4">
-                            <PostCard post={post} />
+                            <PostCard post={post}/>
                             <Button
                                 variant="secondary"
                                 className="mt-2 me-2"
@@ -118,6 +119,16 @@ const PostList = () => {
                                 type="text"
                                 name="content"
                                 value={formData.content}
+                                onChange={handleFormChange}
+                                required
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="userId">
+                            <Form.Label>User ID</Form.Label>
+                            <Form.Control
+                                type="number"
+                                name="userId"
+                                value={formData.userId}
                                 onChange={handleFormChange}
                                 required
                             />

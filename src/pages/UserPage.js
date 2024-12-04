@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import Header from '../components/app/Header';
-import { fetchUsers, createUser, updateUser, deleteUser } from '../services/api';
+import {createUser, deleteUser, fetchUsers, updateUser} from '../services/api';
 
 function UserPage() {
     const [user, setUser] = useState(null);
-    const { id } = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         const loadUser = async () => {
@@ -43,7 +43,7 @@ function UserPage() {
 
     return (
         <div className="user-page">
-            <Header />
+            <Header/>
             <div className="user-profile">
                 <h1>{user.username}'s Profile</h1>
                 {/* Add more user details here */}

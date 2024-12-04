@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import {Card} from "react-bootstrap";
 
-const UserCard = ({ user }) => {
+const UserCard = ({user}) => {
     return (
-        <Card style={{ width: "18rem" }} className="mb-4">
+        <Card style={{width: "18rem"}} className="mb-4">
             <Card.Body>
                 <Card.Title>Name: {user.firstName} {user.lastName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Username: @{user.username}</Card.Subtitle>

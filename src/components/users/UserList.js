@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import UserCard from "./UserCard";
-import { fetchUsers, createUser, updateUser, deleteUser } from "../../services/api";
+import {createUser, deleteUser, fetchUsers, updateUser} from "../../services/api";
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -64,8 +64,8 @@ const UserList = () => {
     };
 
     const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
     };
 
     const handleFormSubmit = (e) => {
@@ -105,7 +105,7 @@ const UserList = () => {
                 <Row sm={1} md={2} lg={3} className="justify-content-evenly">
                     {users.map((user) => (
                         <Col key={user.id} className="mb-4">
-                            <UserCard user={user} />
+                            <UserCard user={user}/>
                             <Button
                                 variant="secondary"
                                 className="mt-2 me-2"
