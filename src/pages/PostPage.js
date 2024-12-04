@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/app/Header';
-import { fetchPosts, createPost, deletePost, updatePost} from '../services/api';
+import { fetchPosts} from '../services/api';
 
 function PostPage() {
     const [post, setPost] = useState(null);
@@ -20,24 +20,6 @@ function PostPage() {
 
         loadPost();
     }, [id]);
-
-    const handleCreatePost = (newPost) => {
-        createPost("posts", newPost)
-            .then(() => fetchPosts("posts").then((response) => setPost(response.data)))
-            .catch((error) => console.error("Error creating post:", error));
-    };
-
-    const handleUpdatePost = (id, updatedPost) => {
-        updatePost("posts", id, updatedPost)
-            .then(() => fetchPosts("posts").then((response) => setPost(response.data)))
-            .catch((error) => console.error("Error updating post:", error));
-    };
-
-    const handleDeletePost = (id) => {
-        deletePost("posts", id)
-            .then(() => fetchPosts("posts").then((response) => setPost(response.data)))
-            .catch((error) => console.error("Error deleting post:", error));
-    };
 
     if (!post) return <div>Loading...</div>;
 
