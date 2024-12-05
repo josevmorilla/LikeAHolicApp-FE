@@ -1,0 +1,29 @@
+/* Global Theme Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Header Theme */
+body.light .navbar {
+    --header-bg-color: #f8f9fa;
+    --header-text-color: #000;
+}
+
+body.dark .navbar {
+    --header-bg-color: #333333;
+    --header-text-color: #ffffff;
+}

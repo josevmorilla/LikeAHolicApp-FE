@@ -1,8 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import '../../styles/Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../styles/Header.css";
 
-const Header = () => {
+const Header = ({ toggleTheme, theme }) => {
     return (
         <nav className="navbar">
             <div className="nav-brand">
@@ -19,6 +19,12 @@ const Header = () => {
                     <Link to="/users">Users</Link>
                 </li>
             </ul>
+            <button
+                className="theme-toggle-button"
+                onClick={toggleTheme}
+            >
+                Switch to {theme === "light" ? "Dark" : "Light"} Mode
+            </button>
         </nav>
     );
 };
