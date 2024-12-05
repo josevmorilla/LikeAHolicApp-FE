@@ -7,9 +7,9 @@ function PostCard ({ post }) {
     }
 
     return (
-        <Card style={{ width: "20rem", border: "1px solid #ddd", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }} className="mb-4">
-            <Card.Body>
-                <Card.Title style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+        <Card style={{ width: "25rem", border: "1px solid #ddd", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", textAlign:"center"}} className="mb-4">
+            <Card.Body style={{alignContent: "center"}}>
+                <Card.Title style={{ fontWeight: "bold", fontSize: "1.25rem"}}>
                     {post.content}
                 </Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
@@ -19,16 +19,16 @@ function PostCard ({ post }) {
                     <strong>Date:</strong> {new Date(post.timestamp).toLocaleDateString()}
                 </Card.Text>
                 <Card.Text>
-                    <Badge bg="primary" style={{ marginRight: "5px" }}>
+                    <Badge bg="primary" style={{ marginRight: "5px", color: "blue" }}>
                         Likes: {post.likesCount || 0}
                     </Badge>
-                    <Badge bg="secondary">
+                    <Badge bg="secondary" style={{color: "green"}}>
                         Comments: {post.commentsCount || 0}
                     </Badge>
                 </Card.Text>
             </Card.Body>
         </Card>
     );
-};
+}
 
 export default PostCard;

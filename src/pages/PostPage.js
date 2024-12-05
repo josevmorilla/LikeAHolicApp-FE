@@ -27,8 +27,8 @@ function PostPage() {
     return (
         <div className="post-page">
             <Header/>
-            <Container className="d-flex justify-content-center align-items-center" style={{minHeight: '80vh'}}>
-                <Card style={{width: '18rem'}}>
+            <Container className="d-flex justify-content-center align-items-center" style={{minHeight: '80vh', textAlign: "center"}}>
+                <Card style={{width: '18rem',}}>
                     <Card.Body>
                         <Card.Title>Post Details</Card.Title>
                         <Card.Text>

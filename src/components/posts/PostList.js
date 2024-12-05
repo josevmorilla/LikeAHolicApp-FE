@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
 import PostCard from "./PostCard";
-import { createPost, deletePost, fetchPosts, updatePost } from "../../services/api";
+import {createPost, deletePost, fetchPosts, updatePost} from "../../services/api";
+import '../../styles/PostList.css';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -44,8 +45,8 @@ const PostList = () => {
     };
 
     const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setFormData((prev) => ({...prev, [name]: value}));
     };
 
     const handleFormSubmit = (e) => {
@@ -78,15 +79,15 @@ const PostList = () => {
     };
 
     return (
-        <div className="text-center bg-light" style={{ minHeight: "100vh", paddingTop: "20px" }}>
-            <h1 className="text-primary mb-4" style={{ fontWeight: "bold" }}>
+        <div className="text-center bg-light" style={{minHeight: "100vh", paddingTop: "20px", textAlign: "center"}}>
+            <h1 className="text-primary mb-4" style={{fontWeight: "bold", color: "blue", textAlign: "center"}}>
                 Posts List
             </h1>
             <Button
                 variant="success"
                 onClick={() => handleShowModal("create")}
                 className="mb-4 shadow"
-                style={{ fontSize: "1.2rem" }}
+                style={{fontSize: "1.2rem"}}
             >
                 Create New Post
             </Button>
@@ -94,7 +95,7 @@ const PostList = () => {
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {posts.map((post) => (
                         <Col key={post.id}>
-                            <PostCard post={post} />
+                            <PostCard post={post}/>
                             <div className="d-flex justify-content-center mt-2">
                                 <Button
                                     variant="warning"
@@ -153,7 +154,7 @@ const PostList = () => {
                             variant="primary"
                             type="submit"
                             className="mt-4 shadow"
-                            style={{ width: "100%" }}
+                            style={{width: "100%"}}
                         >
                             {modalMode === "create" ? "Create Post" : "Update Post"}
                         </Button>
