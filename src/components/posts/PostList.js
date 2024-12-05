@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
-import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import PostCard from "./PostCard";
-import {createPost, deletePost, fetchPosts, updatePost} from "../../services/api";
+import { createPost, deletePost, fetchPosts, updatePost } from "../../services/api";
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [modalMode, setModalMode] = useState("create"); // "create" or "update"
     const [formData, setFormData] = useState({
-        content: '',
-        userId: ''
+        content: "",
+        userId: "",
     });
     const [selectedPost, setSelectedPost] = useState(null);
 
@@ -22,12 +22,14 @@ const PostList = () => {
         if (mode === "update" && post) {
             setSelectedPost(post);
             setFormData({
-                content: post.content || '',
+                content: post.content || "",
+                userId: post.userId || "",
             });
         } else {
             setSelectedPost(null);
             setFormData({
-                content: '',
+                content: "",
+                userId: "",
             });
         }
         setShowModal(true);
@@ -36,24 +38,25 @@ const PostList = () => {
     const handleCloseModal = () => {
         setShowModal(false);
         setFormData({
-            content: '',
+            content: "",
+            userId: "",
         });
     };
 
     const handleFormChange = (e) => {
-        const {name, value} = e.target;
-        setFormData((prev) => ({...prev, [name]: value}));
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        const currentTimestamp = new Date().toISOString(); // Get current date and time for timestamp
+        const currentTimestamp = new Date().toISOString();
         const dataToSubmit = {
             ...formData,
             timestamp: currentTimestamp,
-            likesCount: 0, // Default value
-            commentsCount: 0, // Default value
+            likesCount: 0,
+            commentsCount: 0,
         };
 
         if (modalMode === "create") {
@@ -75,30 +78,28 @@ const PostList = () => {
     };
 
     return (
-        <div className="center">
-            <h1>Posts List</h1>
+        <div className="text-center">
+            <h1 className="my-4">Posts List</h1>
             <Button variant="primary" onClick={() => handleShowModal("create")} className="mb-4">
                 Create New Post
             </Button>
             <Container fluid>
-                <Row sm={1} md={2} lg={3} className="justify-content-evenly">
+                <Row xs={1} md={2} lg={3} className="g-4">
                     {posts.map((post) => (
-                        <Col key={post.id} className="mb-4">
-                            <PostCard post={post}/>
-                            <Button
-                                variant="secondary"
-                                className="mt-2 me-2"
-                                onClick={() => handleShowModal("update", post)}
-                            >
-                                Edit
-                            </Button>
-                            <Button
-                                variant="danger"
-                                className="mt-2"
-                                onClick={() => handleDeletePost(post.id)}
-                            >
-                                Delete
-                            </Button>
+                        <Col key={post.id}>
+                            <PostCard post={post} />
+                            <div className="d-flex justify-content-center mt-2">
+                                <Button
+                                    variant="secondary"
+                                    className="me-2"
+                                    onClick={() => handleShowModal("update", post)}
+                                >
+                                    Edit
+                                </Button>
+                                <Button variant="danger" onClick={() => handleDeletePost(post.id)}>
+                                    Delete
+                                </Button>
+                            </div>
                         </Col>
                     ))}
                 </Row>
@@ -120,20 +121,22 @@ const PostList = () => {
                                 name="content"
                                 value={formData.content}
                                 onChange={handleFormChange}
+                                placeholder="Write your post content here"
                                 required
                             />
                         </Form.Group>
-                        <Form.Group controlId="userId">
+                        <Form.Group controlId="userId" className="mt-3">
                             <Form.Label>User ID</Form.Label>
                             <Form.Control
                                 type="number"
                                 name="userId"
                                 value={formData.userId}
                                 onChange={handleFormChange}
+                                placeholder="Enter user ID"
                                 required
                             />
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="mt-3">
+                        <Button variant="primary" type="submit" className="mt-4">
                             {modalMode === "create" ? "Create Post" : "Update Post"}
                         </Button>
                     </Form>
