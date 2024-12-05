@@ -1,22 +1,34 @@
 import React from "react";
-import {Card} from "react-bootstrap";
+import { Card, Badge } from "react-bootstrap";
 
-function PostCard({post}) {
+function PostCard ({ post }) {
     if (!post) {
-        return <div>Invalid post data</div>;
+        return <div className="text-danger">Invalid post data</div>;
     }
-    return (
-        <Card style={{width: "18rem"}} className="mb-4">
-            <Card.Body>
-                <Card.Title>{post.content}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Post ID: {post.id}</Card.Subtitle>
-                <Card.Text>Date: {new Date(post.timestamp).toLocaleDateString()}</Card.Text>
-                <Card.Text>Likes: {post.likesCount || 0}</Card.Text>
-                <Card.Text>Comments: {post.commentsCount || 0}</Card.Text>
 
+    return (
+        <Card style={{ width: "20rem", border: "1px solid #ddd", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }} className="mb-4">
+            <Card.Body>
+                <Card.Title style={{ fontWeight: "bold", fontSize: "1.25rem" }}>
+                    {post.content}
+                </Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                    <small>Post ID: {post.id}</small>
+                </Card.Subtitle>
+                <Card.Text>
+                    <strong>Date:</strong> {new Date(post.timestamp).toLocaleDateString()}
+                </Card.Text>
+                <Card.Text>
+                    <Badge bg="primary" style={{ marginRight: "5px" }}>
+                        Likes: {post.likesCount || 0}
+                    </Badge>
+                    <Badge bg="secondary">
+                        Comments: {post.commentsCount || 0}
+                    </Badge>
+                </Card.Text>
             </Card.Body>
         </Card>
     );
-}
+};
 
 export default PostCard;
