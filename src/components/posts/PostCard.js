@@ -19,10 +19,10 @@ function PostCard ({ post }) {
                     <strong>Date:</strong> {new Date(post.timestamp).toLocaleDateString()}
                 </Card.Text>
                 <Card.Text>
-                    <Badge bg="primary" style={{ marginRight: "5px", color: "blue" }}>
+                    <Badge bg="primary" style={{ marginRight: "5px", color: "blue"}}>
                         Likes: {post.likesCount || 0}
                     </Badge>
-                    <Badge bg="secondary" style={{color: "green"}}>
+                    <Badge bg="secondary">
                         Comments: {post.commentsCount || 0}
                     </Badge>
                 </Card.Text>

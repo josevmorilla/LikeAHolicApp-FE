@@ -97,17 +97,24 @@ const UserList = () => {
 
     return (
         <div className="center">
-            <h1>User List</h1>
-            <Button variant="primary" onClick={() => handleShowModal("create")} className="mb-4">
-                Add New User
-            </Button>
+            <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "20px"}}>
+                <h1 className="user-title" style={{textAlign: "center"}}>User List</h1>
+                <Button
+                    variant="primary"
+                    onClick={() => handleShowModal("create")}
+                    className="mt-2"
+                >
+                    Add New User
+                </Button>
+            </div>
+
             <Container fluid>
                 <Row sm={1} md={2} lg={3} className="justify-content-evenly">
                     {users.map((user) => (
                         <Col key={user.id} className="mb-4">
                             <UserCard user={user}/>
                             <Button
-                                variant="secondary"
+                                variant="warning"
                                 className="mt-2 me-2"
                                 onClick={() => handleShowModal("update", user)}
                             >
