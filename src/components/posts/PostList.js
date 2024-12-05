@@ -78,9 +78,16 @@ const PostList = () => {
     };
 
     return (
-        <div className="text-center">
-            <h1 className="my-4">Posts List</h1>
-            <Button variant="primary" onClick={() => handleShowModal("create")} className="mb-4">
+        <div className="text-center bg-light" style={{ minHeight: "100vh", paddingTop: "20px" }}>
+            <h1 className="text-primary mb-4" style={{ fontWeight: "bold" }}>
+                Posts List
+            </h1>
+            <Button
+                variant="success"
+                onClick={() => handleShowModal("create")}
+                className="mb-4 shadow"
+                style={{ fontSize: "1.2rem" }}
+            >
                 Create New Post
             </Button>
             <Container fluid>
@@ -90,13 +97,17 @@ const PostList = () => {
                             <PostCard post={post} />
                             <div className="d-flex justify-content-center mt-2">
                                 <Button
-                                    variant="secondary"
-                                    className="me-2"
+                                    variant="warning"
+                                    className="me-2 shadow"
                                     onClick={() => handleShowModal("update", post)}
                                 >
                                     Edit
                                 </Button>
-                                <Button variant="danger" onClick={() => handleDeletePost(post.id)}>
+                                <Button
+                                    variant="danger"
+                                    className="shadow"
+                                    onClick={() => handleDeletePost(post.id)}
+                                >
                                     Delete
                                 </Button>
                             </div>
@@ -106,13 +117,13 @@ const PostList = () => {
             </Container>
 
             {/* Modal for Create/Edit */}
-            <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
+            <Modal show={showModal} onHide={handleCloseModal} centered>
+                <Modal.Header closeButton className="bg-primary text-white">
                     <Modal.Title>
                         {modalMode === "create" ? "Create New Post" : "Edit Post"}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="bg-light">
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group controlId="content">
                             <Form.Label>Content</Form.Label>
@@ -122,6 +133,7 @@ const PostList = () => {
                                 value={formData.content}
                                 onChange={handleFormChange}
                                 placeholder="Write your post content here"
+                                className="shadow-sm"
                                 required
                             />
                         </Form.Group>
@@ -133,16 +145,22 @@ const PostList = () => {
                                 value={formData.userId}
                                 onChange={handleFormChange}
                                 placeholder="Enter user ID"
+                                className="shadow-sm"
                                 required
                             />
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="mt-4">
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            className="mt-4 shadow"
+                            style={{ width: "100%" }}
+                        >
                             {modalMode === "create" ? "Create Post" : "Update Post"}
                         </Button>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>
+                <Modal.Footer className="bg-secondary text-white">
+                    <Button variant="light" onClick={handleCloseModal} className="shadow-sm">
                         Close
                     </Button>
                 </Modal.Footer>
