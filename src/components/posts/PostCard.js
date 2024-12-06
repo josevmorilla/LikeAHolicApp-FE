@@ -15,6 +15,9 @@ function PostCard ({ post }) {
                 <Card.Subtitle className="mb-2 text-muted">
                     <small>Post ID: {post.id}</small>
                 </Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">
+                    <small>User ID: {post.userId}</small>
+                </Card.Subtitle>
                 <Card.Text>
                     <strong>Date:</strong> {new Date(post.timestamp).toLocaleDateString()}
                 </Card.Text>
