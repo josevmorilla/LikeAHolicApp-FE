@@ -118,13 +118,13 @@ const UserList = () => {
                                     className="edit-button"
                                     onClick={() => handleShowModal("update", user)}
                                 >
-                                    <i className="button-icon">✏️</i> Edit
+                                    <i className="button-icon"></i> Edit
                                 </Button>
                                 <Button
                                     className="delete-button"
                                     onClick={() => handleDeleteUser(user.id)}
                                 >
-                                    <i className="button-icon">🗑️</i> Delete
+                                    <i className="button-icon"></i> Delete
                                 </Button>
                             </div>
                         </div>

@@ -105,6 +105,11 @@
     border-bottom: none;
     border-radius: 12px 12px 0 0;
 }
+.form-container label,
+.custom-modal .modal-body label {
+    color: #212529;
+    font-weight: bold;
+}
 
 .form-input {
     border-radius: 8px !important;

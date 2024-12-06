@@ -1,3 +1,4 @@
+/*noinspection ALL*/
 .post-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -7,10 +8,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/*noinspection ALL*/
 .post-content {
     margin-bottom: 12px;
 }
 
+/*noinspection ALL*/
 .post-metadata {
     display: flex;
     gap: 16px;
