@@ -1,19 +1,23 @@
 import React from "react";
-import {Card} from "react-bootstrap";
+import "../../styles/UserCard.css";
 
-const UserCard = ({user}) => {
+function UserCard({ user }) {
+    if (!user) {
+        return <div className="text-danger">Invalid user data</div>;
+    }
+
     return (
-        <Card style={{width: "18rem"}} className="mb-4">
-            <Card.Body>
-                <Card.Title>Name: {user.firstName} {user.lastName}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Username: @{user.username}</Card.Subtitle>
-                <Card.Text>Email: {user.email}</Card.Text>
-                <Card.Text>Location: {user.location}</Card.Text>
-                <Card.Text>Joined: {new Date(user.joinDate).toLocaleDateString()}</Card.Text>
-                <Card.Text>Bio: {user.bio}</Card.Text>
-            </Card.Body>
-        </Card>
+        <div className="user-card">
+            <h3 className="user-name">Name: {user.firstName} {user.lastName}</h3>
+            <div className="user-details">
+                <p>Username: {user.username}</p>
+                <p>Email: {user.email}</p>
+                <p>Location: {user.location}</p>
+                <p>Joined: {user.joinDate}</p>
+                <p>Bio: {user.bio}</p>
+            </div>
+        </div>
     );
-};
+}
 
 export default UserCard;
