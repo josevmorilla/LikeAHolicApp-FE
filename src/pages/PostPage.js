@@ -30,7 +30,7 @@ function PostPage() {
             <Container className="d-flex justify-content-center align-items-center" style={{minHeight: '80vh', textAlign: "center"}}>
                 <Card style={{width: '18rem',}}>
                     <Card.Body>
-                        <Card.Title>Post Details</Card.Title>
+                        <Card.Title> Post Details</Card.Title>
                         <Card.Text>
                             <strong>Content:</strong> {post.content}
                         </Card.Text>

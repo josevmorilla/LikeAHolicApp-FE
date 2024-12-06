@@ -100,6 +100,7 @@ const PostList = () => {
                                 <Button
                                     variant="warning"
                                     className="me-2 shadow"
+
                                     onClick={() => handleShowModal("update", post)}
                                 >
                                     Edit
@@ -162,7 +163,7 @@ const PostList = () => {
                 </Modal.Body>
                 <Modal.Footer className="bg-secondary text-white">
                     <Button variant="light" onClick={handleCloseModal} className="shadow-sm">
-                        Close
+                        ❌ Close
                     </Button>
                 </Modal.Footer>
             </Modal>

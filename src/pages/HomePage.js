@@ -20,7 +20,7 @@ const HomePage = () => {
             {/* Hero Section */}
             <section className="hero-section">
                 <h1>Welcome to LikeAHolic</h1>
-                <p className="hero-subtitle">Share your thoughts, connect with others, and enjoy the experience!</p>
+                <p className="hero-subtitle">Share your thoughts, connect with others, and enjoy the experience</p>
                 <div className="cta-buttons">
                     <button className="primary-btn" onClick={handleShow}>Get Started</button>
 

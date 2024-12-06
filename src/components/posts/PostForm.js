@@ -39,7 +39,7 @@ function PostForm(props) {
     return (
         <div className="form-container">
             <Form onSubmit={handleSubmit}>
-                <h2>{post ? 'Edit Post' : 'Add New Post'}</h2>
+                <h2>{post ? '✏️ Edit Post' : '🆕 Add New Post'}</h2>
                 <Form.Group controlId="content">
                     <Form.Label>Content</Form.Label>
                     <Form.Control
@@ -91,7 +91,7 @@ function PostForm(props) {
                     />
                 </Form.Group>
                 <Button variant="primary" type="submit" className="mt-3">
-                    {post ? 'Update Post' : 'Create Post'}
+                    {post ? '🔄 Update Post' : '🚀 Create Post'}
                 </Button>
             </Form>
         </div>

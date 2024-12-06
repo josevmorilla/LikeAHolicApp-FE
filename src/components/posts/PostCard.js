@@ -20,10 +20,10 @@ function PostCard ({ post }) {
                 </Card.Text>
                 <Card.Text>
                     <Badge bg="primary" style={{ marginRight: "5px", color: "blue"}}>
-                        Likes: {post.likesCount || 0}
+                        Likes: {post.likesCount || 0} ❤️
                     </Badge>
                     <Badge bg="secondary">
-                        Comments: {post.commentsCount || 0}
+                        Comments: {post.commentsCount || 0} 💬
                     </Badge>
                 </Card.Text>
             </Card.Body>
