@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
+import {Button, Container, Form, Modal} from "react-bootstrap";
 import UserCard from "./UserCard";
 import {createUser, deleteUser, fetchUsers, updateUser} from "../../services/api";
+import '../../styles/UserList.css';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -96,52 +97,53 @@ const UserList = () => {
     };
 
     return (
-        <div className="center">
-            <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "20px"}}>
-                <h1 className="user-title" style={{textAlign: "center"}}>User List</h1>
+        <div className="user-list-page">
+            <div className="list-hero-section">
+                <h1>User List</h1>
                 <Button
-                    variant="primary"
+                    className="create-button"
                     onClick={() => handleShowModal("create")}
-                    className="mt-2"
                 >
-                    Add New User
+                    <i className="button-icon">👤</i> Add New User
                 </Button>
             </div>
 
-            <Container fluid>
-                <Row sm={1} md={2} lg={3} className="justify-content-evenly">
+            <Container className="users-container">
+                <div className="users-grid">
                     {users.map((user) => (
-                        <Col key={user.id} className="mb-4">
-                            <UserCard user={user}/>
-                            <Button
-                                variant="warning"
-                                className="mt-2 me-2"
-                                onClick={() => handleShowModal("update", user)}
-                            >
-                                Edit
-                            </Button>
-                            <Button
-                                variant="danger"
-                                className="mt-2"
-                                onClick={() => handleDeleteUser(user.id)}
-                            >
-                                Delete
-                            </Button>
-                        </Col>
+                        <div key={user.id} className="user-item">
+                            <UserCard user={user} />
+                            <div className="user-actions">
+                                <Button
+                                    className="edit-button"
+                                    onClick={() => handleShowModal("update", user)}
+                                >
+                                    <i className="button-icon">✏️</i> Edit
+                                </Button>
+                                <Button
+                                    className="delete-button"
+                                    onClick={() => handleDeleteUser(user.id)}
+                                >
+                                    <i className="button-icon">🗑️</i> Delete
+                                </Button>
+                            </div>
+                        </div>
                     ))}
-                </Row>
+                </div>
             </Container>
 
-            {/* Modal for Create/Edit */}
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal show={showModal} onHide={handleCloseModal} centered className="custom-modal">
                 <Modal.Header closeButton>
-                    <Modal.Title>{modalMode === "create" ? "Add New User" : "Edit User"}</Modal.Title>
+                    <Modal.Title>
+                        {modalMode === "create" ? "Add New User" : "Edit User"}
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group controlId="username">
                             <Form.Label>Username</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="text"
                                 name="username"
                                 value={formData.username}
@@ -152,6 +154,7 @@ const UserList = () => {
                         <Form.Group controlId="email" className="mt-3">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="email"
                                 name="email"
                                 value={formData.email}
@@ -162,6 +165,7 @@ const UserList = () => {
                         <Form.Group controlId="password" className="mt-3">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="password"
                                 name="password"
                                 value={formData.password}
@@ -172,6 +176,7 @@ const UserList = () => {
                         <Form.Group controlId="firstName" className="mt-3">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="text"
                                 name="firstName"
                                 value={formData.firstName}
@@ -182,6 +187,7 @@ const UserList = () => {
                         <Form.Group controlId="lastName" className="mt-3">
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="text"
                                 name="lastName"
                                 value={formData.lastName}
@@ -192,6 +198,7 @@ const UserList = () => {
                         <Form.Group controlId="bio" className="mt-3">
                             <Form.Label>Bio</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="text"
                                 name="bio"
                                 value={formData.bio}
@@ -201,22 +208,18 @@ const UserList = () => {
                         <Form.Group controlId="location" className="mt-3">
                             <Form.Label>Location</Form.Label>
                             <Form.Control
+                                className="form-input"
                                 type="text"
                                 name="location"
                                 value={formData.location}
                                 onChange={handleFormChange}
                             />
                         </Form.Group>
-                        <Button variant="primary" type="submit" className="mt-3">
+                        <Button type="submit" className="submit-button mt-4">
                             {modalMode === "create" ? "Create User" : "Update User"}
                         </Button>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>
-                        Close
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </div>
     );

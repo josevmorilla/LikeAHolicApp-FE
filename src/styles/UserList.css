@@ -1,0 +1,131 @@
+.user-list-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.list-hero-section {
+    padding: 55px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    margin-bottom: 50px;
+}
+
+.list-hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.create-button {
+    background-color: white !important;
+    color: #6366f1 !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-size: 1.1rem !important;
+    border-radius: 8px !important;
+    transition: transform 0.2s !important;
+}
+
+.create-button:hover {
+    transform: translateY(-2px);
+}
+
+.users-container {
+    margin-top: -30px;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.user-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.user-item:hover {
+    transform: translateY(-5px);
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.edit-button, .delete-button {
+    flex: 1;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    border: none !important;
+    transition: transform 0.2s !important;
+}
+
+.edit-button {
+    background-color: #8b5cf6 !important;
+    color: white !important;
+}
+
+.delete-button {
+    background-color: #ef4444 !important;
+    color: white !important;
+}
+
+.button-icon {
+    margin-right: 8px;
+    font-style: normal;
+}
+
+/* Modal Styling */
+.custom-modal .modal-content {
+    border-radius: 12px;
+    border: none;
+}
+
+.custom-modal .modal-header {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+}
+
+.form-input {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px !important;
+}
+
+.submit-button {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    border: none !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+}
+
+@media (max-width: 768px) {
+    .users-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .list-hero-section h1 {
+        font-size: 2rem;
+    }
+}
